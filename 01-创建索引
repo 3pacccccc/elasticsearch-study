@@ -1,0 +1,59 @@
+一、常用类型：
+1.string类型：text, keyword(string类型在es5已经开始废弃)(text在存入的时候分析器会做分析，keyword不会，因此keyword字段只能是原样匹配)
+2.数字类型：long, integer, short, byte, double, float
+3.日期类型: date
+4.bool类型: boolean
+5.binary类型: binary
+6.复杂类型: object， nested
+7.geo类型: geo-point， geo-shape
+8.专业类型：ip， competion
+
+二、常用属性:
+1.store: yes表示存储， no表示不存储，默认为no，适合类型:all
+2.index: 对数据做倒排索引，yes表示分析， no表示不分析，默认为true，适合类型:string
+3.null_value: 如果字段为空，可以设置一个默认值，比如"NA", 可以使得ES更好识别。适合类型：all
+4.analyzer：可以设置索引和搜索时用的分析器，默认使用的是standard,还可以使用(英文状态下whitespace,simple, english，汉语下使用ik_max_word) 适合类型：all
+5.include_in_all: 默认ES为每个文档定义一个特殊域_all, 它的作用是让每个字段被搜索到，如果不想某个字段被搜索到，可以设置为false。适合类型：all
+6.format： 时间格式字符串的模式 适合类型：all
+
+三、创建索引实例：
+在kibana下，输入以下命令可以创建索引
+PUT information
+{
+    "mappings": {
+        "job":{
+            "properties":{
+                "title":{
+                    "type":"text"
+                },
+                "salary_min":{
+                    "type":"integer"
+                },
+                "city":{
+                    "type":"keyword"
+                },
+                "company":{
+                    "properties":{
+                        "name":{
+                            "type":"text"
+                        },
+                        "company_addr":{
+                            "type": "text"
+                        },
+                        "employee_count":{
+                            "type":"integer"
+                        }
+
+                    }
+                },
+                "publish_date":{
+                    "type": "date",
+                    "format":"yyyy-MM-dd"
+                },
+                "comments": {
+                    "type":"integer"
+                }
+            }
+        }
+    }
+}

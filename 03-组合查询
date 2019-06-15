@@ -1,0 +1,105 @@
+bool查询
+filter:过滤，must：必须里面的所有条件，should：满足里面的其中一个或者多个条件，must_not：里面的条件都不能满足
+基本格式如下：
+bool:{
+    "filter":[],
+    "must":[],
+    "should":[],
+    "must_not":[]
+}
+
+1.查询
+例：查询salary为20的工作
+敲重点：精确查找最好用term而不用match
+GET information/testjob/_search
+{
+    "query":{
+        "bool":{
+            "must":{
+                "match_all":{}
+            },
+            "filter":{
+                "term":{
+                    "salary":20
+                }
+            }
+        }
+    }
+}
+
+2.查看分词器的分词结果
+例：
+GET _analyze
+{
+    "analyzer":"ik_max_word",
+    "text":"Python网络工程师"
+}
+
+3.复杂查询
+查询薪资等于20k或者工作为Python的工作，同时排除工资为30k的
+注意："term":["title":"python"]不能写为"term":["title":"Python"]，因为在数据入库的时候，数据自动做倒排索引保存为python,term表示精确查找，故不会找到Python
+GET information/testjob/_search
+{
+    "query":{
+        "bool":{
+            "should":[
+                "term":["salary":20],
+                "term":["title":"python"]}}
+            ],
+            "must_not":{
+                "term":{"salary":30}
+            }
+        }
+    }
+}
+
+4.嵌套查询
+查询title=python或者是title=django并且salary=30的数据
+
+GET information/testjob/_search
+{
+    "query":{
+        "bool":{
+            "should":[
+                {"term":{"title":"python"}},
+                {"bool":{
+                    "must":[
+                        {"term":{"title":"django"
+                        }},
+                        {"term":{"salary":30}}
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
+
+5.过滤空和非空
+例：查询tags不为空的数据
+GET information/testjob2/_search
+{
+    "query":{
+        "bool":{
+            "filter":{
+                "exists":{
+                    "field":"tags"
+                }
+            }
+        }
+    }
+}
+
+例：查询tags为空的数据
+GET information/testjob2/_search
+{
+    "query":{
+        "bool":{
+            "must_not":{
+                "exists":{
+                    "field":"tags"
+                }
+            }
+        }
+    }
+}

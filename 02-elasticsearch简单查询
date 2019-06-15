@@ -1,0 +1,144 @@
+1.match查询
+match查询可以将搜索的字段进行分词，例如python网站会分为python，网站两个词，数据只要满足一个就会被返回
+例： 查询information索引下type job下title含有python的数据
+GET information/job/_search
+{
+    "query":{
+        "match":{
+        "title":"python"
+        }
+    }
+}
+
+2.term查询
+term查询不会将查询的关键字进行分词，比如搜索“百度无敌”这个关键词，数据只有都匹配到了这几个字才会被返回
+例：查询information索引下type job下title含有python的数据
+GET information/job/_search
+{
+    "query":{
+        "term":{
+        "title":"python"
+        }
+    }
+}
+
+3.terms查询
+可以传入一个数组进行查询，数据只要匹配到了其中一个就会被返回
+例：查询information索引下type job下title含有django或者工程师或者系统的数据
+GET information/job/_search
+{
+    "query":{
+        "terms":{
+            "title":["工程师","django","系统"]
+        }
+    }
+}
+
+4.控制查询的数量以及起始位置
+例：从1开始，返回2条数据
+GET information/_search
+{
+    "query":{
+        "term":{
+        "title":"python"
+        }
+    }
+    "from": 1,
+    "size": 2
+}
+
+5.match_phrase短语查询
+term查询不会将查询的关键字进行分词，比如搜索“百度无敌”这个关键词，数据只有都匹配到了这几个字才会被返回
+slop：两个词之间的最小距离
+例：查询information下title包含python和系统两个字段且最小距离为6的数据
+GET information/_search
+{
+    "query":{
+        "match_phrase":{
+            "title":{
+                "query":"python系统",
+                "slop":6
+            }
+        }
+    }
+}
+
+6.multi_match查询
+可以指定多个字段
+例：查询information下title或者desc中包含python的数据, ^3表示权重是desc的三倍
+GET information/_search
+{
+    "query":{
+        "multi_match":{
+            "query":"python",
+            "fields":["python^3","desc"]
+        }
+    }
+}
+
+7.指定返回字段
+例：match查询，返回stored=true的指定字段
+GET information/_search
+{
+    "stored_fields":["title","company_name"]
+    "query":{
+        "match":{
+        "title":"python"
+        }
+    }
+}
+
+8.sort把结果排序
+例：将结果根据comments进行asc排序
+GET information/_search
+{
+    "query":{
+        "match_all":{}
+    }，
+    "sort":[{
+        "comments":{
+            "order": "asc"
+        }
+    }
+    ]
+}
+
+9.range范围查询
+例：查询comments范围在[10,20]的数据，boost：权重
+GET information/_search
+{
+    "query":{
+        "range":{
+            "comments":{
+                "gte":10,
+                "lte":20,
+                "boost":2.0
+            }
+        }
+    }
+}
+
+例：查询add_time范围在[2017-04-01, now]之间的数据
+{
+    "query":{
+        "range":{
+            "add_time":{
+                "gte":"2017-04-01",
+                "lte":"now",
+            }
+        }
+    }
+}
+
+10.wildcard查询
+模糊查询
+例：查询所有title满足pyth*n的数据
+GET information/_search
+{
+    "query":{
+        "wildcard":
+        {"title":{"value":"pyth*n","boost":
+        2.0}}
+    }
+}
+
