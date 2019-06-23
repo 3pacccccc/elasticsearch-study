@@ -1,3 +1,40 @@
+lcv_search新增查询
+1.fuzzy模糊搜索
+fuzzy搜索可以搜索到相似的甚至是有不同的关键字，例如传入linx,linxx可以搜索到linux关键字
+GET jobbole/_search
+{
+    "query":{
+        "fuzzy":{
+            "title":{
+                "value":"linux,
+                "fuzziness":2,         # 最小编辑距离：使一个字符串通过增加、删除、替换、交换位置方式变成另一个字符串的最小距离。例如：linux跟linxx的最小编辑距离是1
+                "prefix_length":0      # 关键词的前几个词不能改变。例如：linux即lin不可以改变
+            }
+        }
+    }
+}
+
+2.搜索建议返回
+通过传入的关键词，es分析之后传回搜索建议
+POST jobbole/_search?pretty
+{
+    "suggest":{
+        "my-suggest":{                  # my-suggest是自定义的搜索名称
+            "text": "linux",            # 传入关键字
+            "completion":{
+                "field":"suggest"       # suggest是在mapping中保存的字段名称
+                "fuzze":{
+                    "fuzzeiness":2
+                }
+            }
+        }
+    },
+    "_source":"title"                    # 自定义返回的字段
+}
+
+
+
+-------------------------------------------------------------------------------------------------------
 1.match查询
 match查询可以将搜索的字段进行分词，例如python网站会分为python，网站两个词，数据只要满足一个就会被返回
 例： 查询information索引下type job下title含有python的数据
