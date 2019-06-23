@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a989afd-7aba-449a-ab7e-c0bffc908122" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/05-搜索建议.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-使用django搭建搜索引擎网站.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-elasticsearch简单查询" beforeDir="false" afterPath="$PROJECT_DIR$/02-elasticsearch简单查询" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-scrapy2elasticsearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/04-scrapy2elasticsearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="06-使用django搭建搜索引擎网站.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="06-使用django搭建搜索引擎网站.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/06-使用django搭建搜索引擎网站.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="48" column="80" selection-start-line="48" selection-start-column="80" selection-end-line="48" selection-end-column="80" />
+            <state relative-caret-position="227">
+              <caret line="50" column="141" selection-start-line="50" selection-start-column="141" selection-end-line="50" selection-end-column="141" />
               <folding>
                 <element signature="e#114#125#0" expanded="true" />
               </folding>
@@ -83,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            <state relative-caret-position="93">
+              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -123,11 +119,11 @@
         <option value="$PROJECT_DIR$/01-创建索引" />
         <option value="$PROJECT_DIR$/03-组合查询" />
         <option value="$PROJECT_DIR$/04-scrapy2elasticsearch" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/05-搜索建议.py" />
         <option value="$PROJECT_DIR$/04-scrapy2elasticsearch.py" />
         <option value="$PROJECT_DIR$/02-elasticsearch简单查询" />
         <option value="$PROJECT_DIR$/06-使用django搭建搜索引擎网站.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -231,9 +227,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32963374" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32963374" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3307436" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3307436" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1545946" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1545946" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -489,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/02-elasticsearch简单查询">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -522,11 +511,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/06-使用django搭建搜索引擎网站.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="48" column="80" selection-start-line="48" selection-start-column="80" selection-end-line="48" selection-end-column="80" />
+        <state relative-caret-position="227">
+          <caret line="50" column="141" selection-start-line="50" selection-start-column="141" selection-end-line="50" selection-end-column="141" />
           <folding>
             <element signature="e#114#125#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
         </state>
       </provider>
     </entry>
